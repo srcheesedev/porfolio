@@ -4,6 +4,6 @@ import { defineConfig } from 'astro/config';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://srcheesedev.github.io',
-  base: '/portfolio',
+  base: '/porfolio',
   integrations: [],
 });
