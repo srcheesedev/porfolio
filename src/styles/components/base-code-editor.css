@@ -1,0 +1,154 @@
+/**
+ * Base Code Editor Styles
+ * 
+ * Estilos base para el componente BaseCodeEditor que proporciona
+ * la estructura visual común para todos los editores de código.
+ * 
+ * @author Javier Argüeso
+ * @version 1.0.0
+ */
+
+.code-editor {
+  /* Layout & Dimensions - Responsive */
+  width: 100%;
+  min-width: 280px;
+  max-width: none;
+  flex: 1;
+  
+  /* Visual Design */
+  background-color: var(--editorBackground, #222526);
+  box-shadow: var(--shadowLarge, 0px 4px 30px rgba(0, 0, 0, 0.5));
+  border-radius: 8px;
+  
+  /* Typography */
+  font-family: var(--fontMono, 'Courier New', monospace);
+  
+  /* Positioning */
+  padding: 2px;
+  
+  /* Accessibility */
+  overflow: hidden;
+  
+  /* Performance */
+  will-change: transform;
+  contain: layout style paint;
+}
+
+.editor-header {
+  /* Layout */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+  /* Spacing */
+  margin: 15px 20px;
+  
+  /* User interaction */
+  user-select: none;
+}
+
+.editor-title {
+  /* Typography */
+  color: var(--textPrimary, #f0f6fc);
+  font-size: 14px;
+  font-weight: 600;
+  font-family: var(--fontSans, system-ui, sans-serif);
+  
+  /* Layout */
+  margin: 0;
+  
+  /* Text handling */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  
+  /* Accessibility */
+  letter-spacing: 0.5px;
+}
+
+.close-button {
+  /* Reset button styles */
+  border: none;
+  background: none;
+  
+  /* Layout */
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  
+  /* Interaction */
+  cursor: pointer;
+  transition: background-color var(--animationDuration, 0.2s) ease;
+  
+  /* Accessibility */
+  outline-offset: 2px;
+  min-width: 28px;
+  min-height: 28px;
+}
+
+.close-button:hover {
+  background-color: var(--hoverBackground, #6e7281);
+}
+
+.close-button:focus-visible {
+  outline: 2px solid var(--textPrimary, #f0f6fc);
+  outline-offset: 2px;
+}
+
+.close-icon {
+  width: var(--iconSize, 20px);
+  height: var(--iconSize, 20px);
+  color: #4C4F5A;
+  transition: color var(--animationDuration, 0.2s) ease;
+}
+
+.close-button:hover .close-icon {
+  color: var(--textPrimary, #f0f6fc);
+}
+
+.editor-content {
+  /* Layout */
+  padding: 20px;
+  
+  /* Visual */
+  background: transparent;
+  
+  /* Scrolling */
+  overflow: visible;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .editor-header {
+    margin: 12px 15px;
+  }
+  
+  .editor-title {
+    font-size: 13px;
+  }
+  
+  .editor-content {
+    padding: 15px;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .code-editor {
+    border: 2px solid var(--textPrimary, #f0f6fc);
+  }
+  
+  .editor-title {
+    text-shadow: 0 0 2px currentColor;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .close-button,
+  .close-icon {
+    transition: none;
+  }
+}

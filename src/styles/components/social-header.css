@@ -1,0 +1,33 @@
+/* ===== SOCIAL HEADER COMPONENT ===== */
+
+.social-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.social-header__handle {
+  font-size: var(--text-sm);
+  font-weight: 400;
+  opacity: 0.9;
+  color: var(--color-secondary);
+}
+
+/* Landscape - Header completo en una línea */
+@media (orientation: landscape) {
+  .social-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    gap: var(--space-md);
+    padding: var(--space-sm) 0;
+  }
+
+  .social-header__handle {
+    color: var(--color-secondary);
+    opacity: 1;
+    font-size: var(--text-sm);
+  }
+}

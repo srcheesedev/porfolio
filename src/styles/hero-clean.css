@@ -1,0 +1,130 @@
+/* ===== HERO COMPONENT - Layout principal ===== */
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Fallback para navegadores que no soportan las nuevas unidades */
+  height: 100dvh; /* Dynamic Viewport Height - se ajusta a barras móviles */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== AJUSTES PARA MÓVILES ===== */
+@media (max-height: 700px) and (orientation: portrait) {
+  .hero {
+    height: 100vh;
+    height: 100svh; /* Small Viewport Height - altura mínima sin barras */
+    min-height: -webkit-fill-available; /* Fallback para Safari móvil */
+  }
+}
+
+/* ===== IMAGEN DE FONDO (Por defecto - vertical) ===== */
+.hero__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.hero__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  filter: grayscale(20%) contrast(1.1);
+}
+
+/* ===== CONTENEDORES INDIVIDUALES ===== */
+.hero__header {
+  position: absolute;
+  top: var(--space-xl);
+  width: 100%;
+  padding: 0 5%;
+  z-index: 10;
+}
+
+.hero__title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  width: 100%;
+}
+
+.hero-title__first,
+.hero-title__second {
+  opacity: 0.7;
+}
+
+.hero-title__quote {
+  color: var(--color-accent);
+} 
+
+.hero__footer {
+  position: absolute;
+  bottom: var(--space-xl);
+  width: 100%;
+  padding: 0 5%;
+  z-index: 10;
+}
+
+
+/* Media query para pantallas horizontales - layout grid */
+@media (orientation: landscape) {
+  .hero__image {
+    width: 33%;
+    left: auto;
+  }
+
+  /* Contenedores individuales en landscape */
+  .hero__image {
+    right: 67%;    
+  }
+
+}
+
+/* PORTRAIT LAYOUT - Z-index ordenado para efecto de profundidad */
+@media (orientation: portrait) {
+  /* Imagen por encima del título */
+  .hero__image {
+    z-index: 5;
+  }
+  
+  /* Contenedor del título - posicionado para permitir control interno */
+  .hero__title {
+    top: 25%;
+    transform: translate(-51%, -25%);
+    z-index: 1;
+  }
+  
+  /* Título centrado en 1/3 de la pantalla */
+  .hero-title-container {
+    justify-content: center;
+  }
+  
+  /* Tamaños de texto más grandes para portrait */
+  .hero-title__first,
+  .hero-title__second {
+    font-size: clamp(6rem, 20vw, 30rem) !important;
+    transform: scaleY(1.5);
+    padding-bottom: 2rem;
+  }
+  
+  .hero-title__quote {
+    display: none;
+  }
+  
+}
+
+/* ===== ANIMACIONES GLOBALES ===== */
+.hero__content > * {
+  animation: fadeIn 0.8s ease-out both;
+}
+
+.hero__content > *:nth-child(1) { animation-delay: 0.1s; }
+.hero__content > *:nth-child(2) { animation-delay: 0.3s; }
+.hero__content > *:nth-child(3) { animation-delay: 0.5s; }

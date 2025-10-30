@@ -1,0 +1,68 @@
+---
+/**
+ * Python Code Card Component
+ * 
+ * Displays Python code representation of developer profile and skills.
+ * Shows personal information, technical skills, and interests using the BaseCodeEditor
+ * foundation following DRY principles and composition pattern.
+ * 
+ * @component PythonCodeCard
+ * @author Javier Argüeso
+ * @version 2.0.0
+ */
+
+import BaseCodeEditor from './base/BaseCodeEditor.astro';
+import { DEVELOPER, CODE_FILES } from '../constants/app';
+import '../styles/components/python-code-card.css';
+---
+
+<BaseCodeEditor 
+  filename={CODE_FILES.PYTHON}
+  language="python"
+  className="python-code-card"
+  aria-label="Python code showing developer profile and skills"
+>
+  <div class="python-content">
+    <p><span class="color-comment">#!/usr/bin/env python3</span></p>
+    <p><span class="color-comment">"""</span></p>
+    <p><span class="color-comment">Developer: {DEVELOPER.NAME}</span></p>
+    <p><span class="color-comment">{DEVELOPER.ROLE}</span></p>
+    <p><span class="color-comment">"""</span></p>
+    <p></p>
+    <p><span class="color-keyword">def</span> <span class="color-function">get_info</span><span class="color-punctuation">():</span></p>
+    <p>    <span class="color-keyword">return</span> <span class="color-punctuation">&#123;</span></p>
+    <p>        <span class="color-string">"name"</span><span class="color-punctuation">:</span> <span class="color-string">"{DEVELOPER.NAME}"</span><span class="color-punctuation">,</span></p>
+    <p>        <span class="color-string">"role"</span><span class="color-punctuation">:</span> <span class="color-string">"{DEVELOPER.ROLE}"</span><span class="color-punctuation">,</span></p>
+    <p>        <span class="color-string">"location"</span><span class="color-punctuation">:</span> <span class="color-string">"{DEVELOPER.LOCATION}"</span><span class="color-punctuation">,</span></p>
+    <p>        <span class="color-string">"education"</span><span class="color-punctuation">:</span> <span class="color-string">"Computer Engineering"</span></p>
+    <p>    <span class="color-punctuation">&#125;</span></p>
+    <p></p>
+    <p><span class="color-keyword">def</span> <span class="color-function">get_skills</span><span class="color-punctuation">():</span></p>
+    <p>    <span class="color-keyword">return</span> <span class="color-punctuation">&#123;</span></p>
+    <p>        <span class="color-string">"cloud"</span><span class="color-punctuation">:</span> <span class="color-punctuation">[</span><span class="color-string">"GCP"</span><span class="color-punctuation">,</span> <span class="color-string">"AWS"</span><span class="color-punctuation">,</span> <span class="color-string">"Azure"</span><span class="color-punctuation">],</span></p>
+    <p>        <span class="color-string">"automation"</span><span class="color-punctuation">:</span> <span class="color-punctuation">[</span><span class="color-string">"K8s"</span><span class="color-punctuation">,</span> <span class="color-string">"Docker"</span><span class="color-punctuation">],</span></p>
+    <p>        <span class="color-string">"programming"</span><span class="color-punctuation">:</span> <span class="color-punctuation">[</span><span class="color-string">"Python"</span><span class="color-punctuation">,</span> <span class="color-string">"Bash"</span><span class="color-punctuation">],</span></p>
+    <p>        <span class="color-string">"ci_cd"</span><span class="color-punctuation">:</span> <span class="color-punctuation">[</span><span class="color-string">"GitLab"</span><span class="color-punctuation">,</span> <span class="color-string">"Azure DevOps"</span><span class="color-punctuation">]</span></p>
+    <p>    <span class="color-punctuation">&#125;</span></p>
+    <p></p>
+    <p><span class="color-keyword">def</span> <span class="color-function">get_interests</span><span class="color-punctuation">():</span></p>
+    <p>    <span class="color-keyword">return</span> <span class="color-punctuation">&#123;</span></p>
+    <p>        <span class="color-string">"tech"</span><span class="color-punctuation">:</span> <span class="color-punctuation">[</span><span class="color-string">"Cloud"</span><span class="color-punctuation">,</span> <span class="color-string">"Automation"</span><span class="color-punctuation">],</span></p>
+    <p>        <span class="color-string">"hobbies"</span><span class="color-punctuation">:</span> <span class="color-punctuation">[</span><span class="color-string">"Metal"</span><span class="color-punctuation">,</span> <span class="color-string">"Beer"</span><span class="color-punctuation">,</span> <span class="color-string">"Cheese"</span><span class="color-punctuation">]</span></p>
+    <p>    <span class="color-punctuation">&#125;</span></p>
+    <p></p>
+    <p><span class="color-keyword">def</span> <span class="color-function">main</span><span class="color-punctuation">():</span></p>
+    <p>    <span class="color-variable">profile</span> <span class="color-punctuation">=</span> <span class="color-punctuation">&#123;</span></p>
+    <p>        <span class="color-punctuation">**</span><span class="color-function">get_info</span><span class="color-punctuation">(),</span></p>
+    <p>        <span class="color-string">"skills"</span><span class="color-punctuation">:</span> <span class="color-function">get_skills</span><span class="color-punctuation">(),</span></p>
+    <p>        <span class="color-string">"interests"</span><span class="color-punctuation">:</span> <span class="color-function">get_interests</span><span class="color-punctuation">()</span></p>
+    <p>    <span class="color-punctuation">&#125;</span></p>
+    <p>    <span class="color-keyword">return</span> <span class="color-variable">profile</span></p>
+    <p></p>
+    <p><span class="color-keyword">if</span> <span class="color-variable">__name__</span> <span class="color-punctuation">==</span> <span class="color-string">"__main__"</span><span class="color-punctuation">:</span></p>
+    <p>    <span class="color-variable">dev</span> <span class="color-punctuation">=</span> <span class="color-function">main</span><span class="color-punctuation">()</span></p>
+    <p>    <span class="color-function">print</span><span class="color-punctuation">(</span><span class="color-keyword">f</span><span class="color-string">"👋 &#123;dev['name']&#125;"</span><span class="color-punctuation">)</span></p>
+    <p>    <span class="color-function">print</span><span class="color-punctuation">(</span><span class="color-keyword">f</span><span class="color-string">"📍 &#123;dev['location']&#125;"</span><span class="color-punctuation">)</span></p>
+    <p>    <span class="color-function">print</span><span class="color-punctuation">(</span><span class="color-keyword">f</span><span class="color-string">"🚀 &#123;dev['role']&#125;"</span><span class="color-punctuation">)</span></p>
+  </div>
+</BaseCodeEditor>

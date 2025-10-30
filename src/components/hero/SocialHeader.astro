@@ -1,0 +1,17 @@
+---
+import DateDisplay from './DateDisplay.astro';
+import "../../styles/components/social-header.css";
+
+// Componente para el header con social handle y fecha
+interface Props {
+  handle: string;
+  className?: string;
+}
+
+const { handle, className = "" } = Astro.props;
+---
+
+<header class={`social-header ${className}`}>
+  <span class="social-header__handle">@{handle}</span>
+  <DateDisplay />
+</header>

@@ -1,0 +1,20 @@
+---
+import "../../styles/components/hero-title.css";
+
+// Componente para el título principal superpuesto
+interface Props {
+  title: string;
+  quote: string;
+  className?: string;
+}
+
+const { quote, className = "" } = Astro.props;
+---
+
+<div class={`hero-title-container ${className}`} aria-hidden="true">
+  <div class="hero-title">
+    <span class="hero-title__first">DEVOPS</span>
+    <span class="hero-title__quote">{quote}</span>
+    <span class="hero-title__second">ENGINEER</span>
+  </div>
+</div>

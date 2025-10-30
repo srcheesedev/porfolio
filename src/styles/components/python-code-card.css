@@ -1,0 +1,70 @@
+/**
+ * Python Code Card Styles
+ * 
+ * Estilos específicos para el componente PythonCodeCard que muestra
+ * código Python con syntax highlighting y diseño responsive.
+ * 
+ * @author Javier Argüeso
+ * @version 1.0.0
+ */
+
+.python-content {
+  font-family: 'Courier New', monospace;
+  font-size: clamp(12px, 2.5vw, 16px);
+  line-height: 1.6;
+  color: white;
+  overflow-x: hidden;
+  word-wrap: break-word;
+}
+
+.python-content p {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Python syntax highlighting colors */
+.color-keyword {
+  color: #ff7b72; /* Python keywords - red */
+  font-weight: 600;
+}
+
+.color-function {
+  color: #d2a8ff; /* Function names - purple */
+  font-weight: 500;
+}
+
+.color-string {
+  color: #a5d6ff; /* String literals - light blue */
+}
+
+.color-comment {
+  color: #8b949e; /* Comments - gray */
+  font-style: italic;
+}
+
+.color-variable {
+  color: #79c0ff; /* Variables - blue */
+}
+
+.color-punctuation {
+  color: #f0f6fc; /* Punctuation - white */
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .color-keyword,
+  .color-function,
+  .color-string {
+    text-shadow: 0 0 2px currentColor;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .python-content {
+    transition: none;
+  }
+}

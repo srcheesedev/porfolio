@@ -1,0 +1,73 @@
+---
+/**
+ * Main Presentation Component
+ * 
+ * Hero section with magazine-style editorial layout
+ * Displays developer information with responsive design:
+ * - Portrait: Full-screen with depth effect
+ * - Landscape: Split layout (67% content, 33% image)
+ * 
+ * @component
+ * @example
+ * ```astro
+ * <Presentation />
+ * ```
+ */
+
+import { content } from "../data/content";
+import "../styles/global.css";
+import "../styles/hero-clean.css";
+
+// Import modular components
+import SocialHeader from "./hero/SocialHeader.astro";
+import HeroTitle from "./hero/HeroTitle.astro";
+import AuthorFooter from "./hero/AuthorFooter.astro";
+---
+
+<section 
+  class="hero" 
+  role="banner" 
+  aria-label="Developer portfolio hero section"
+>
+  <!-- Background Image -->
+  <figure class="hero__image" aria-hidden="true">
+    <img
+      src={content.image}
+      alt={`${content.realName} - ${content.title}`}
+      width="1200"
+      height="800"
+      loading="eager"
+      fetchpriority="high"
+      class="hero__img"
+    />
+  </figure>
+
+  <!-- Contrast Overlay -->
+  <div class="hero__overlay" aria-hidden="true"></div>
+
+  <!-- Header with social links and handle -->
+  <div class="hero__header">
+    <SocialHeader 
+      handle={content.author}
+    />
+  </div>
+
+  <!-- Main title with quote -->
+  <div class="hero__title">
+    <HeroTitle 
+      title={content.title}
+      quote={content.text}
+    />
+  </div>
+
+  <!-- Footer with author info and social links -->
+  <div class="hero__footer">
+    <AuthorFooter 
+      authorName={content.subtitle}
+      location={content.location}
+      socialLinks={content.socialLinks}
+    />
+  </div>
+</section>
+
+

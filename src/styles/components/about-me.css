@@ -1,0 +1,186 @@
+/**
+ * About Me Section Styles
+ * 
+ * Estilos para el componente AboutMe que contiene la presentación
+ * personal y las tarjetas de código con diseño responsive.
+ * 
+ * @author Javier Argüeso
+ * @version 1.0.0
+ */
+
+.about-me-section {
+  /* Layout */
+  padding: var(--spacing-3xl, 4rem) var(--spacing-lg, 1.5rem);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--spacing-3xl, 4rem);
+}
+
+.section-header {
+  /* Typography */
+  text-align: center;
+  max-width: 1200px;
+}
+
+.section-title {
+  /* Typography */
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+  
+  /* Visual */
+  color: rgba(255, 255, 255, 0.8);
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+  
+  /* Spacing */
+  margin-bottom: var(--spacing-lg, 1.5rem);
+}
+
+.section-subtitle {
+  /* Typography */
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.5px;
+  
+  /* Visual */
+  color: var(--color-text-light, #cccccc);
+  opacity: 0.9;
+  
+}
+
+.intro-text {
+  /* Typography */
+  text-align: center;
+  max-width: 800px;
+  
+  /* Visual */
+  color: var(--color-text, #ffffff);
+  
+  /* Spacing */
+  margin-bottom: var(--spacing-lg, 1.5rem);
+}
+
+.intro-text h2 {
+  /* Typography */
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  
+  /* Spacing */
+  margin-bottom: var(--spacing-md, 1rem);
+  
+  /* Visual */
+  color: var(--color-accent, #FDB82F);
+}
+
+.intro-text p {
+  /* Typography */
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  line-height: 1.6;
+  
+  /* Visual */
+  color: var(--color-text-light, #cccccc);
+  
+  /* Spacing */
+  margin-bottom: var(--spacing-sm, 0.5rem);
+}
+
+.code-cards-container {
+  /* Layout */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: var(--spacing-2xl, 3rem);
+  align-items: start;
+  justify-items: center;
+  max-width: 100%;
+  width: 100%;
+}
+
+/* Responsive code cards */
+.code-cards-container > article {
+  width: 100%;
+  min-height: 600px;
+  max-width: 800px;
+}
+
+/* Mobile responsive design */
+@media (max-width: 768px) {
+  .about-me-section {
+    padding: var(--spacing-2xl, 3rem) var(--spacing-md, 1rem);
+    gap: var(--spacing-2xl, 3rem);
+  }
+  
+  .code-cards-container {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl, 2rem);
+    padding: 0 var(--spacing-md, 1rem);
+  }
+  
+  .code-cards-container > article {
+    min-height: 500px;
+    max-width: 100%;
+  }
+}
+
+/* Tablet responsive design */
+@media (min-width: 769px) and (max-width: 1199px) {
+  .code-cards-container {
+    grid-template-columns: repeat(auto-fit, minmax(550px, 1fr));
+    gap: var(--spacing-2xl, 3rem);
+  }
+  
+  .code-cards-container > article {
+    min-height: 650px;
+    max-width: 700px;
+  }
+}
+
+/* Large screens optimization */
+@media (min-width: 1200px) {
+  .about-me-section {
+    padding: var(--spacing-3xl, 4rem) var(--spacing-2xl, 3rem);
+  }
+  
+  .code-cards-container {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 1600px;
+    gap: var(--spacing-3xl, 4rem);
+  }
+  
+  .code-cards-container > article {
+    min-height: 700px;
+    max-width: 750px;
+  }
+}
+
+/* Extra large screens */
+@media (min-width: 1600px) {
+  .code-cards-container > article {
+    min-height: 750px;
+    max-width: 800px;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .intro-text h2,
+  .intro-text p {
+    text-shadow: 0 0 4px currentColor;
+  }
+  
+  .section-title {
+    text-shadow: 0 0 6px currentColor;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .about-me-section {
+    transition: none;
+  }
+}

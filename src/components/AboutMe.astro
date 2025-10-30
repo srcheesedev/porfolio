@@ -1,0 +1,42 @@
+---
+/**
+ * About Me Section Component
+ * 
+ * Main section displaying professional information through interactive code cards.
+ * Features Python developer profile and GitLab CI experience pipeline.
+ * Refactored for better maintainability using centralized constants and
+ * consistent styling patterns.
+ * 
+ * @component AboutMe
+ * @author Javier Argüeso
+ * @version 2.0.0
+ */
+
+import '../styles/components/about-me.css';
+import PythonCodeCard from './PythonCodeCard.astro';
+import YamlCodeCard from './YamlCodeCard.astro';
+---
+
+<section 
+  class="about-me-section"
+  role="main"
+  aria-labelledby="about-me-title"
+>
+  <div class="section-header">
+    <h2 id="about-me-title" class="section-title">
+      About Me
+    </h2>
+    <p class="section-subtitle">
+      Professional journey through code
+    </p>
+  </div>
+  
+  <div 
+    class="code-cards-container"
+    role="region"
+    aria-label="Professional code examples"
+  >
+    <PythonCodeCard />
+    <YamlCodeCard />
+  </div>
+</section>

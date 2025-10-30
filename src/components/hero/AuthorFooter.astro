@@ -1,0 +1,41 @@
+---
+import "../../styles/components/author-footer.css";
+
+// Componente para el footer con información del autor y redes sociales
+interface Props {
+  authorName: string;
+  location: string;
+  socialLinks: {
+    instagram: string;
+    linkedin: string;
+    github: string;
+  };
+  showAccent?: boolean;
+  className?: string;
+}
+
+const { authorName, location, socialLinks, showAccent = true, className = "" } = Astro.props;
+---
+
+<footer class={`author-footer ${className}`}>
+  <!-- Enlaces de redes sociales a la izquierda -->
+  <div class="author-footer__social">
+    <a href={socialLinks.instagram} target="_blank" rel="noopener noreferrer" class="author-footer__social-link">
+      IG
+    </a>
+    <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer" class="author-footer__social-link">
+      LI
+    </a>
+    <a href={socialLinks.github} target="_blank" rel="noopener noreferrer" class="author-footer__social-link">
+      GH
+    </a>
+  </div>
+
+  <!-- Información del autor a la derecha -->
+  <address class="author-footer__author">
+    <span class="author-footer__name">{authorName}</span>
+    <span class="author-footer__location">{location}</span>
+  </address>
+  
+  {showAccent && <div class="author-footer__accent" aria-hidden="true"></div>}
+</footer>

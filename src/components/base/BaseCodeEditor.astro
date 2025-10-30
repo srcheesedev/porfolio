@@ -1,0 +1,114 @@
+---
+/**
+ * Base Code Editor Component
+ * 
+ * Reusable code editor interface component that provides a consistent
+ * foundation for all code card variations. Implements the Single Responsibility
+ * Principle by focusing solely on the visual code editor structure.
+ * 
+ * @component BaseCodeEditor
+ * @author Javier Argüeso
+ * @version 1.0.0
+ * 
+ * @example
+ * ```astro
+ * <BaseCodeEditor filename="example.py" language="python">
+ *   <CodeContent content={pythonCode} />
+ * </BaseCodeEditor>
+ * ```
+ */
+
+import '../../styles/components/base-code-editor.css';
+import { CODE_EDITOR } from '../../constants/ui';
+import type { BaseProps } from '../../types/core';
+
+interface Props extends BaseProps {
+  /** Filename to display in the editor header */
+  filename: string;
+  /** Programming language for syntax context */
+  language: 'python' | 'yaml' | 'typescript' | 'bash';
+  /** Whether to show the close button */
+  showCloseButton?: boolean;
+  /** Optional maximum width override */
+  maxWidth?: string;
+  /** Optional custom title (defaults to filename) */
+  title?: string;
+  /** Optional CSS class name for styling */
+  className?: string;
+}
+
+const { 
+  filename, 
+  language, 
+  showCloseButton = true, 
+  maxWidth = CODE_EDITOR.MAX_WIDTH,
+  title,
+  className = '',
+  ...props 
+} = Astro.props;
+
+// Language-specific file extensions for visual context
+const LANGUAGE_EXTENSIONS = {
+  python: '.py',
+  yaml: '.yml',
+  typescript: '.ts',
+  bash: '.sh'
+} as const;
+
+const displayFilename = title || filename;
+const hasExtension = filename.includes('.');
+const finalFilename = hasExtension 
+  ? filename 
+  : `${filename}${LANGUAGE_EXTENSIONS[language]}`;
+---
+
+<article 
+  class={`code-editor ${className}`}
+  role="img"
+  aria-label={`Code editor showing ${displayFilename}`}
+  data-language={language}
+  {...props}
+>
+  <!-- Editor Header -->
+  <header class="editor-header">
+    <h3 class="editor-title" title={displayFilename}>
+      {finalFilename}
+    </h3>
+    
+    {showCloseButton && (
+          <button 
+      class="close-button" 
+      type="button" 
+      aria-label="Close editor" 
+      tabindex="-1"
+      style="visibility: hidden;"
+    >
+        <svg 
+          xmlns="http://www.w3.org/2000/svg" 
+          fill="none" 
+          viewBox="0 0 24 24" 
+          class="close-icon"
+          aria-hidden="true"
+        >
+          <path 
+            stroke-linecap="round" 
+            stroke-width="2" 
+            stroke="currentColor" 
+            d="M6 6L18 18"
+          />
+          <path 
+            stroke-linecap="round" 
+            stroke-width="2" 
+            stroke="currentColor" 
+            d="M18 6L6 18"
+          />
+        </svg>
+      </button>
+    )}
+  </header>
+
+  <!-- Editor Content Area -->
+  <main class="editor-content" role="main">
+    <slot />
+  </main>
+</article>

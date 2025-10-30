@@ -1,0 +1,44 @@
+# GitLab CI Pipeline - DevOps Career Journey
+variables:
+  DEVELOPER_NAME: "Javier Argüeso"
+  ROLE: "DevOps Engineer"
+  LOCATION: "Badajoz, España"
+  EDUCATION: "Ingeniería Informática - Universidad de Extremadura"
+  CERTIFICATIONS: ["Google Cloud Associate Engineer", "Google Cloud Professional DevOps Engineer", "AZ-400"]
+  TECHS: ["GCP", "AWS", "Azure", "Kubernetes", "Jenkins", "GitLab CI/CD", "Azure DevOps", "Terraform", "Python"]
+
+stages:
+  - education
+  - experience
+
+# Education & Certification
+foundation:
+  stage: education
+  image: ubuntu
+  script:
+    - echo "🎓 ${EDUCATION}"
+    - echo "☁️ ${CERTIFICATIONS[0]} certified"
+    - echo "☁️ ${CERTIFICATIONS[1]} in progress"
+    - echo "☁️ ${CERTIFICATIONS[2]} in progress"
+
+# Professional Experience
+plexus-tech:
+  stage: experience
+  image: ubuntu:21.07
+  variables:
+    COMPANY: "Plexus Tech (2021-2023)"
+  script:
+    - echo "🚀 DevOps Engineer at ${COMPANY}"
+    - echo "🔧 CI/CD pipelines & container orchestration"
+    - echo "☁️ Clouds ${TECHS[1]}, ${TECHS[2]}"
+
+minsait-current:
+  stage: experience
+  image: ubuntu:23.04
+  variables:
+    COMPANY: "Minsait (2023-Present)"
+  script:
+    - echo "🚀 DevOps Engineer at ${COMPANY}"
+    - echo "🔧 CI/CD pipelines & container orchestration"
+    - echo "☁️ Clouds ${TECHS[0]}"
+    - echo "🔒 Security & automation focus"

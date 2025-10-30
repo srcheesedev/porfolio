@@ -1,0 +1,71 @@
+---
+/**
+ * YAML Code Card Component
+ * 
+ * Displays the GitLab CI pipeline YAML with syntax highlighting.
+ * Shows professional experience and deployment pipeline using the BaseCodeEditor
+ * foundation following DRY principles and composition pattern.
+ * 
+ * @component YamlCodeCard
+ * @author Javier Argüeso
+ * @version 2.0.0
+ */
+
+import BaseCodeEditor from './base/BaseCodeEditor.astro';
+import { CODE_FILES } from '../constants/app';
+import '../styles/components/yaml-code-card.css';
+---
+
+<BaseCodeEditor 
+  filename={CODE_FILES.YAML}
+  language="yaml"
+  className="yaml-code-card"
+  aria-label="GitLab CI pipeline showing professional experience and skills"
+>
+  <div class="yaml-content">
+    <p><span class="color-comment"># GitLab CI Pipeline - DevOps Career Journey</span></p>
+    <p><span class="color-key">variables</span><span class="color-punctuation">:</span></p>
+    <p>  <span class="color-key">DEVELOPER_NAME</span><span class="color-punctuation">:</span> <span class="color-string">"Javier Argüeso"</span></p>
+    <p>  <span class="color-key">ROLE</span><span class="color-punctuation">:</span> <span class="color-string">"DevOps Engineer"</span></p>
+    <p>  <span class="color-key">LOCATION</span><span class="color-punctuation">:</span> <span class="color-string">"Badajoz, España"</span></p>
+    <p>  <span class="color-key">EDUCATION</span><span class="color-punctuation">:</span> <span class="color-string">"Ingeniería Informática - Universidad de Extremadura"</span></p>
+    <p>  <span class="color-key">CERTIFICATIONS</span><span class="color-punctuation">:</span> <span class="color-punctuation">[</span><span class="color-string">"Google Cloud Associate Engineer"</span><span class="color-punctuation">,</span> <span class="color-string">"Google Cloud Professional DevOps Engineer"</span><span class="color-punctuation">,</span> <span class="color-string">"AZ-400"</span><span class="color-punctuation">]</span></p>
+    <p>  <span class="color-key">TECHS</span><span class="color-punctuation">:</span> <span class="color-punctuation">[</span><span class="color-string">"GCP"</span><span class="color-punctuation">,</span> <span class="color-string">"AWS"</span><span class="color-punctuation">,</span> <span class="color-string">"Azure"</span><span class="color-punctuation">,</span> <span class="color-string">"Kubernetes"</span><span class="color-punctuation">,</span> <span class="color-string">"Jenkins"</span><span class="color-punctuation">,</span> <span class="color-string">"GitLab CI/CD"</span><span class="color-punctuation">,</span> <span class="color-string">"Azure DevOps"</span><span class="color-punctuation">,</span> <span class="color-string">"Terraform"</span><span class="color-punctuation">,</span> <span class="color-string">"Python"</span><span class="color-punctuation">]</span></p>
+    <p></p>
+    <p><span class="color-key">stages</span><span class="color-punctuation">:</span></p>
+    <p>  <span class="color-punctuation">-</span> <span class="color-value">education</span></p>
+    <p>  <span class="color-punctuation">-</span> <span class="color-value">experience</span></p>
+    <p></p>
+    <p><span class="color-comment"># Education &amp; Certification</span></p>
+    <p><span class="color-key">foundation</span><span class="color-punctuation">:</span></p>
+    <p>  <span class="color-key">stage</span><span class="color-punctuation">:</span> <span class="color-value">education</span></p>
+    <p>  <span class="color-key">image</span><span class="color-punctuation">:</span> <span class="color-value">ubuntu</span></p>
+    <p>    <p>  <span class="color-key">script</span><span class="color-punctuation">:</span></p>
+    <p>    <span class="color-punctuation">-</span><span class="color-string">echo "🎓 $&#123;EDUCATION&#125;"</span></p>
+    <p>    <span class="color-punctuation">-</span> <span class="color-string">echo "☁️ $&#123;CERTIFICATIONS[0]&#125; certified"</span></p>
+    <p>    <span class="color-punctuation">-</span> <span class="color-string">echo "☁️ $&#123;CERTIFICATIONS[1]&#125; in progress"</span></p>
+    <p>    <span class="color-punctuation">-</span> <span class="color-string">echo "☁️ $&#123;CERTIFICATIONS[2]&#125; in progress"</span></p>
+    <p></p>
+    <p><span class="color-comment"># Professional Experience</span></p>
+    <p><span class="color-key">plexus-tech</span><span class="color-punctuation">:</span></p>
+    <p>  <span class="color-key">stage</span><span class="color-punctuation">:</span> <span class="color-value">experience</span></p>
+    <p>  <span class="color-key">image</span><span class="color-punctuation">:</span> <span class="color-value">ubuntu:21.07</span></p>
+    <p>  <span class="color-key">variables</span><span class="color-punctuation">:</span></p>
+    <p>    <span class="color-key">COMPANY</span><span class="color-punctuation">:</span> <span class="color-string">"Plexus Tech (2021-2023)"</span></p>
+    <p>  <span class="color-key">script</span><span class="color-punctuation">:</span></p>
+    <p>    <span class="color-punctuation">-</span> <span class="color-string">echo "🚀 DevOps Engineer at $&#123;COMPANY&#125;"</span></p>
+    <p>    <span class="color-punctuation">-</span> <span class="color-string">echo "🔧 CI/CD pipelines &amp; container orchestration"</span></p>
+    <p>    <span class="color-punctuation">-</span> <span class="color-string">echo "☁️ Clouds $&#123;TECHS[1]&#125;, $&#123;TECHS[2]&#125;"</span></p>
+    <p></p>
+    <p><span class="color-key">minsait-current</span><span class="color-punctuation">:</span></p>
+    <p>  <span class="color-key">stage</span><span class="color-punctuation">:</span> <span class="color-value">experience</span></p>
+    <p>  <span class="color-key">image</span><span class="color-punctuation">:</span> <span class="color-value">ubuntu:23.04</span></p>
+    <p>  <span class="color-key">variables</span><span class="color-punctuation">:</span></p>
+    <p>    <span class="color-key">COMPANY</span><span class="color-punctuation">:</span> <span class="color-string">"Minsait (2023-Present)"</span></p>
+    <p>  <span class="color-key">script</span><span class="color-punctuation">:</span></p>
+    <p>    <span class="color-punctuation">-</span> <span class="color-string">echo "🚀 DevOps Engineer at $&#123;COMPANY&#125;"</span></p>
+    <p>    <span class="color-punctuation">-</span> <span class="color-string">echo "🔧 CI/CD pipelines &amp; container orchestration"</span></p>
+    <p>    <span class="color-punctuation">-</span> <span class="color-string">echo "☁️ Clouds $&#123;TECHS[0]&#125;"</span></p>
+    <p>    <span class="color-punctuation">-</span> <span class="color-string">echo "🔒 Security &amp; automation focus"</span></p>
+  </div>
+</BaseCodeEditor>

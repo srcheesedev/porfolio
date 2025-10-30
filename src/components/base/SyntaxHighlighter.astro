@@ -1,0 +1,291 @@
+---
+/**
+ * Syntax Highlighted Code Content Component
+ * 
+ * Handles syntax highlighting for different programming languages.
+ * Implements the Open/Closed Principle - closed for modification,
+ * open for extension through new language support.
+ * 
+ * @component SyntaxHighlighter
+ * @author Javier Argüeso
+ * @version 1.0.0
+ */
+
+import { COLORS, CODE_EDITOR } from '../../constants/ui';
+
+interface Props {
+  /** Programming language for syntax highlighting */
+  language: 'python' | 'yaml' | 'typescript' | 'bash';
+  /** Raw code content to highlight */
+  content: string;
+  /** Whether to show line numbers */
+  showLineNumbers?: boolean;
+  /** Starting line number (when showing line numbers) */
+  startLine?: number;
+}
+
+const { 
+  language, 
+  content, 
+  showLineNumbers = false, 
+  startLine = 1 
+} = Astro.props;
+
+/**
+ * Syntax highlighting rules for different languages
+ */
+const SYNTAX_RULES = {
+  python: {
+    keyword: /\b(def|class|if|else|elif|for|while|try|except|import|from|return|yield|lambda|with|as|pass|break|continue|global|nonlocal|and|or|not|in|is|True|False|None)\b/g,
+    function: /\b([a-zA-Z_][a-zA-Z0-9_]*)\s*(?=\()/g,
+    string: /(["'])((?:\\.|(?!\1)[^\\])*?)\1/g,
+    comment: /(#.*$|"""[\s\S]*?"""|'''[\s\S]*?''')/gm,
+    variable: /\bself\b|\b__\w+__\b/g,
+    number: /\b\d+(?:\.\d+)?\b/g,
+    operator: /[+\-*/%=<>!&|^~]/g,
+  },
+  yaml: {
+    key: /^(\s*)([a-zA-Z_][a-zA-Z0-9_]*)\s*:/gm,
+    string: /(["'])((?:\\.|(?!\1)[^\\])*?)\1/g,
+    comment: /(#.*$)/gm,
+    value: /:\s*([^"'\s][^\n]*)/g,
+    boolean: /\b(true|false|yes|no|on|off)\b/gi,
+    null: /\b(null|~)\b/gi,
+    number: /\b\d+(?:\.\d+)?\b/g,
+    array: /^\s*-\s*/gm,
+  },
+  typescript: {
+    keyword: /\b(function|const|let|var|if|else|for|while|do|switch|case|default|break|continue|return|import|export|interface|type|class|extends|implements|public|private|protected|static|async|await|try|catch|finally)\b/g,
+    function: /\b([a-zA-Z_][a-zA-Z0-9_]*)\s*(?=\()/g,
+    string: /(["'`])((?:\\.|(?!\1)[^\\])*?)\1/g,
+    comment: /(\/\/.*$|\/\*[\s\S]*?\*\/)/gm,
+    type: /:\s*([a-zA-Z_][a-zA-Z0-9_]*(?:\[\])?)/g,
+    number: /\b\d+(?:\.\d+)?\b/g,
+  },
+  bash: {
+    keyword: /\b(if|then|else|elif|fi|for|do|done|while|until|case|esac|function|local|export|source|alias)\b/g,
+    command: /\b(echo|cd|ls|mkdir|rm|cp|mv|grep|sed|awk|sort|uniq|head|tail|cat|chmod|chown)\b/g,
+    string: /(["'])((?:\\.|(?!\1)[^\\])*?)\1/g,
+    comment: /(#.*$)/gm,
+    variable: /\$\{?[a-zA-Z_][a-zA-Z0-9_]*\}?/g,
+    number: /\b\d+\b/g,
+  }
+} as const;
+
+/**
+ * Applies syntax highlighting to code content
+ */
+function highlightSyntax(code: string, lang: keyof typeof SYNTAX_RULES): string {
+  const rules = SYNTAX_RULES[lang];
+  let highlighted = code;
+
+  // Apply highlighting rules in order of precedence
+  Object.entries(rules).forEach(([type, regex]) => {
+    highlighted = highlighted.replace(regex, (match, ...groups) => {
+      // Handle different capture group scenarios
+      if (type === 'string') {
+        const quote = groups[0];
+        const content = groups[1];
+        return `<span class="syntax-${type}">${quote}${content}${quote}</span>`;
+      }
+      
+      if (type === 'key' && lang === 'yaml') {
+        const indent = groups[0];
+        const key = groups[1];
+        return `${indent}<span class="syntax-${type}">${key}</span>:`;
+      }
+      
+      return `<span class="syntax-${type}">${match}</span>`;
+    });
+  });
+
+  return highlighted;
+}
+
+/**
+ * Splits code into lines and applies syntax highlighting
+ */
+function processCodeLines(code: string, lang: keyof typeof SYNTAX_RULES) {
+  return code
+    .split('\n')
+    .map((line, index) => ({
+      number: startLine + index,
+      content: highlightSyntax(line, lang),
+      isEmpty: line.trim() === ''
+    }));
+}
+
+const codeLines = processCodeLines(content, language);
+---
+
+<div class="syntax-highlighter" data-language={language}>
+  {showLineNumbers && (
+    <div class="line-numbers" aria-hidden="true">
+      {codeLines.map(line => (
+        <div class="line-number">{line.number}</div>
+      ))}
+    </div>
+  )}
+  
+  <div class="code-content">
+    {codeLines.map(line => (
+      <div 
+        class={`code-line ${line.isEmpty ? 'empty-line' : ''}`}
+        data-line={line.number}
+      >
+        <span set:html={line.content || '&nbsp;'} />
+      </div>
+    ))}
+  </div>
+</div>
+
+<style define:vars={{
+  keywordColor: COLORS.SYNTAX.KEYWORD,
+  functionColor: COLORS.SYNTAX.FUNCTION,
+  stringColor: COLORS.SYNTAX.STRING,
+  variableColor: COLORS.SYNTAX.VARIABLE,
+  punctuationColor: COLORS.SYNTAX.PUNCTUATION,
+  commentColor: COLORS.SYNTAX.COMMENT,
+  valueColor: COLORS.SYNTAX.VALUE,
+  keyColor: COLORS.SYNTAX.KEY,
+  indentLevel1: CODE_EDITOR.INDENT.LEVEL_1,
+  indentLevel2: CODE_EDITOR.INDENT.LEVEL_2,
+  indentLevel3: CODE_EDITOR.INDENT.LEVEL_3,
+}}>
+  .syntax-highlighter {
+    display: flex;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    line-height: 1.4;
+    width: 100%;
+  }
+
+  .line-numbers {
+    display: flex;
+    flex-direction: column;
+    padding-right: 12px;
+    margin-right: 12px;
+    border-right: 1px solid var(--commentColor);
+    user-select: none;
+    min-width: 2em;
+    text-align: right;
+  }
+
+  .line-number {
+    color: var(--commentColor);
+    font-size: 11px;
+    line-height: 1.4;
+  }
+
+  .code-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .code-line {
+    margin: 0;
+    padding: 0;
+    white-space: pre;
+  }
+
+  .empty-line {
+    min-height: 1.4em;
+  }
+
+  /* Syntax highlighting styles */
+  :global(.syntax-keyword) {
+    color: var(--keywordColor);
+    font-weight: 600;
+  }
+
+  :global(.syntax-function) {
+    color: var(--functionColor);
+  }
+
+  :global(.syntax-string) {
+    color: var(--stringColor);
+  }
+
+  :global(.syntax-variable) {
+    color: var(--variableColor);
+  }
+
+  :global(.syntax-comment) {
+    color: var(--commentColor);
+    font-style: italic;
+  }
+
+  :global(.syntax-value) {
+    color: var(--valueColor);
+  }
+
+  :global(.syntax-key) {
+    color: var(--keyColor);
+  }
+
+  :global(.syntax-number) {
+    color: var(--valueColor);
+  }
+
+  :global(.syntax-operator) {
+    color: var(--punctuationColor);
+  }
+
+  :global(.syntax-type) {
+    color: var(--functionColor);
+    font-weight: 500;
+  }
+
+  :global(.syntax-command) {
+    color: var(--functionColor);
+    font-weight: 600;
+  }
+
+  :global(.syntax-boolean) {
+    color: var(--keywordColor);
+  }
+
+  :global(.syntax-null) {
+    color: var(--commentColor);
+  }
+
+  :global(.syntax-array) {
+    color: var(--punctuationColor);
+  }
+
+  /* Indentation helpers for readability */
+  .code-line:has(.property) {
+    margin-left: var(--indentLevel1);
+  }
+
+  .code-line:has(.property-deep) {
+    margin-left: var(--indentLevel2);
+  }
+
+  .code-line:has(.property-deep-2) {
+    margin-left: var(--indentLevel3);
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 480px) {
+    .syntax-highlighter {
+      font-size: 11px;
+    }
+    
+    .line-numbers {
+      padding-right: 8px;
+      margin-right: 8px;
+    }
+  }
+
+  /* High contrast mode */
+  @media (prefers-contrast: high) {
+    :global(.syntax-keyword),
+    :global(.syntax-function),
+    :global(.syntax-string),
+    :global(.syntax-variable) {
+      text-shadow: 0 0 2px currentColor;
+    }
+  }
+</style>

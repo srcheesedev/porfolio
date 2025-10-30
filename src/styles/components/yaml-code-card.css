@@ -1,0 +1,67 @@
+/**
+ * YAML Code Card Styles
+ * 
+ * Estilos específicos para el componente YamlCodeCard que muestra
+ * código YAML con syntax highlighting y diseño responsive.
+ * 
+ * @author Javier Argüeso
+ * @version 1.0.0
+ */
+
+.yaml-content {
+  font-family: 'Courier New', monospace;
+  font-size: clamp(12px, 2.5vw, 16px);
+  line-height: 1.6;
+  color: white;
+  overflow-x: visible;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.yaml-content p {
+  margin: 0;
+  padding: 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: none;
+}
+
+/* YAML syntax highlighting colors */
+.color-key {
+  color: #79c0ff; /* YAML keys - light blue */
+  font-weight: 600;
+}
+
+.color-string {
+  color: #a5d6ff; /* String values - lighter blue */
+}
+
+.color-value {
+  color: #f85149; /* Scalar values - red */
+}
+
+.color-punctuation {
+  color: #f0f6fc; /* Punctuation - white */
+}
+
+.color-comment {
+  color: #8b949e; /* Comments - gray */
+  font-style: italic;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .color-key,
+  .color-string,
+  .color-value {
+    text-shadow: 0 0 2px currentColor;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .yaml-content {
+    transition: none;
+  }
+}
