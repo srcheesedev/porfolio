@@ -35,6 +35,7 @@ const formattedDate = date.toLocaleDateString('en-US', {
 
 <div 
   class={`date-display ${className}`}
+  role="status"
   aria-label={`Current date: ${formattedDate}`}
 >
   <span class="date-display__year" aria-hidden="true">{year}</span>

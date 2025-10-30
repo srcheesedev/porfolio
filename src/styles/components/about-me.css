@@ -48,8 +48,8 @@
   letter-spacing: 0.5px;
   
   /* Visual */
-  color: var(--color-text-light, #cccccc);
-  opacity: 0.9;
+  color: var(--color-text, #ffffff);
+  opacity: 0.8;
   
 }
 
