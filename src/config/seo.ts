@@ -47,7 +47,7 @@ export const SITE_SEO: SEOConfig = {
     "Software Engineer"
   ] as const,
   author: "Javier Argüeso",
-  ogImage: "/porfolio/IMG_20250526_105648_239.jpg",
+  ogImage: "/porfolio/IMG_20250526_105648_239.avif",
   twitterCard: "summary_large_image",
   structuredData: {
     "@context": "https://schema.org",
@@ -56,7 +56,7 @@ export const SITE_SEO: SEOConfig = {
     "jobTitle": "DevOps Engineer",
     "description": "DevOps Engineer specializing in cloud infrastructure and automation",
     "url": "https://srcheesedev.github.io/porfolio",
-    "image": "/porfolio/IMG_20250526_105648_239.jpg",
+    "image": "/porfolio/IMG_20250526_105648_239.avif",
     "sameAs": [
       "https://github.com/srcheesedev",
       "https://linkedin.com/in/javier-argueso-soto",

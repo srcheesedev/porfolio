@@ -43,3 +43,37 @@ const formattedDate = date.toLocaleDateString('en-US', {
     <span class="date-display__month">{month}</span>
   </div>
 </div>
+
+<script>
+  // Update date precisely at midnight local time
+  function updateDate() {
+    const now = new Date();
+    const day = now.getDate().toString().padStart(2, '0');
+    const month = (now.getMonth() + 1).toString().padStart(2, '0');
+    const year = now.getFullYear().toString();
+    
+    const yearElement = document.querySelector('.date-display__year');
+    const dayElement = document.querySelector('.date-display__day');
+    const monthElement = document.querySelector('.date-display__month');
+    
+    if (yearElement) yearElement.textContent = year;
+    if (dayElement) dayElement.textContent = day;
+    if (monthElement) monthElement.textContent = month;
+  }
+  
+  // Calculate milliseconds until next midnight
+  function getMsUntilMidnight() {
+    const now = new Date();
+    const midnight = new Date(now);
+    midnight.setHours(24, 0, 0, 0); // Next midnight
+    return midnight.getTime() - now.getTime();
+  }
+  
+  // Update immediately, then schedule next update at midnight
+  updateDate();
+  setTimeout(() => {
+    updateDate();
+    // After first midnight update, update daily at midnight
+    setInterval(updateDate, 24 * 60 * 60 * 1000);
+  }, getMsUntilMidnight());
+</script>

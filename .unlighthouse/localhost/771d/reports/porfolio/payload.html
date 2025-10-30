@@ -1,0 +1,982 @@
+<!DOCTYPE html><html lang="en" dir="ltr" data-astro-cid-sckkx6r4> <head><!-- Essential Meta Tags --><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Astro v5.14.7"><!-- SEO Meta Tags --><title>Javier Argüeso - DevOps Engineer</title><meta name="description" content="Experienced DevOps Engineer creating scalable cloud infrastructure. Specializing in automation, CI/CD, and modern deployment strategies. View my portfolio and technical expertise."><meta name="keywords" content="DevOps Engineer, Cloud Infrastructure, Infrastructure as Code, CI/CD Pipelines, Kubernetes, AWS, Terraform, Python, Docker, Automation, Site Reliability Engineering, Cloud Architecture, Javier Argüeso, Badajoz Spain, Software Engineer"><meta name="author" content="Javier Argüeso"><link rel="canonical" href="https://srcheesedev.github.io/porfolio/"><!-- Open Graph / Facebook --><meta property="og:type" content="website"><meta property="og:url" content="https://srcheesedev.github.io/porfolio/"><meta property="og:title" content="Javier Argüeso - DevOps Engineer"><meta property="og:description" content="Experienced DevOps Engineer creating scalable cloud infrastructure. Specializing in automation, CI/CD, and modern deployment strategies. View my portfolio and technical expertise."><meta property="og:site_name" content="Javier Argüeso Portfolio"><meta property="og:image" content="/porfolio/IMG_20250526_105648_239.avif"><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://srcheesedev.github.io/porfolio/"><meta property="twitter:title" content="Javier Argüeso - DevOps Engineer"><meta property="twitter:description" content="Experienced DevOps Engineer creating scalable cloud infrastructure. Specializing in automation, CI/CD, and modern deployment strategies. View my portfolio and technical expertise."><meta property="twitter:image" content="/porfolio/IMG_20250526_105648_239.avif"><!-- Favicon and Icons --><link rel="icon" type="image/avif" href="/porfolio/favicon.avif"><link rel="apple-touch-icon" href="/porfolio/favicon.avif"><!-- Performance and Font Optimization --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="dns-prefetch" href="https://fonts.gstatic.com"><!-- Structured Data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Javier Argüeso","jobTitle":"DevOps Engineer","description":"DevOps Engineer specializing in cloud infrastructure and automation","url":"https://srcheesedev.github.io/porfolio","image":"/porfolio/IMG_20250526_105648_239.avif","sameAs":["https://github.com/srcheesedev","https://linkedin.com/in/javier-argueso-soto","https://instagram.com/srcheese.dev"],"address":{"@type":"PostalAddress","addressLocality":"Badajoz","addressCountry":"Spain"},"knowsAbout":["DevOps","Cloud Computing","Infrastructure as Code","Kubernetes","AWS","Python","CI/CD"]}</script><!-- Security Headers --><meta name="referrer" content="strict-origin-when-cross-origin"><style data-vite-dev-id="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/layouts/Layout.astro?astro&#38;type=style&#38;index=0&#38;lang.css">html{box-sizing:border-box;height:100%}[data-astro-cid-sckkx6r4],[data-astro-cid-sckkx6r4]::before,[data-astro-cid-sckkx6r4]::after{box-sizing:inherit}body{margin:0;padding:0;width:100%;min-height:100%;line-height:1.5;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.skip-link[data-astro-cid-sckkx6r4]{position:absolute;top:-40px;left:6px;background:#000;color:#fff;padding:8px;text-decoration:none;border-radius:4px;z-index:1000}.skip-link[data-astro-cid-sckkx6r4]:focus{top:6px}@media (prefers-reduced-motion: reduce){[data-astro-cid-sckkx6r4],[data-astro-cid-sckkx6r4]::before,[data-astro-cid-sckkx6r4]::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important;scroll-behavior:auto!important}}</style>
+<style data-vite-dev-id="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/styles/global.css">
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700;800;900&display=swap');
+/* ===== FUENTES ESPECÍFICAS ===== */
+/* ===== VARIABLES GLOBALES ===== */
+:root {
+  /* Colores principales */
+  --color-img-bg: #3B82F6;
+  --color-primary: #1d1d1d;
+  --color-secondary: #ffffff;
+  --color-accent: #FDB82F;
+  --color-text: #fff;
+  --color-text-light: #666666;
+  --color-gray-light: #f8f8f8;
+  --color-gray-medium: #e0e0e0;
+
+  /* Tipografía */
+  --font-primary: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', 'Monaco', 'Menlo', 'Consolas', monospace;
+  
+  /* Tamaños de fuente */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+  --text-6xl: 3.75rem;
+
+  /* Espaciado */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+
+  /* Sombras */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
+
+  /* Border radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+
+  /* Transiciones */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}
+/* ===== RESET Y BASE ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  font-family: var(--font-primary);
+  color: var(--color-text);
+  background: var(--color-primary);
+  min-height: 100vh;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+/* ===== UTILIDADES ===== */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+/* ===== ANIMACIONES GLOBALES ===== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}</style>
+<style data-vite-dev-id="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/styles/hero-clean.css">/* ===== HERO COMPONENT - Layout principal ===== */
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Fallback para navegadores que no soportan las nuevas unidades */
+  height: 100dvh; /* Dynamic Viewport Height - se ajusta a barras móviles */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== AJUSTES PARA MÓVILES ===== */
+@media (max-height: 700px) and (orientation: portrait) {
+  .hero {
+    height: 100vh;
+    height: 100svh; /* Small Viewport Height - altura mínima sin barras */
+    min-height: -webkit-fill-available; /* Fallback para Safari móvil */
+  }
+}
+
+/* ===== IMAGEN DE FONDO (Por defecto - vertical) ===== */
+.hero__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.hero__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  filter: grayscale(20%) contrast(1.1);
+}
+
+/* ===== CONTENEDORES INDIVIDUALES ===== */
+.hero__header {
+  position: absolute;
+  top: var(--space-xl);
+  width: 100%;
+  padding: 0 5%;
+  z-index: 10;
+}
+
+.hero__title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  width: 100%;
+}
+
+.hero-title__first,
+.hero-title__second {
+  opacity: 0.7;
+}
+
+.hero-title__quote {
+  color: var(--color-accent);
+} 
+
+.hero__footer {
+  position: absolute;
+  bottom: var(--space-xl);
+  width: 100%;
+  padding: 0 5%;
+  z-index: 10;
+}
+
+
+/* Media query para pantallas horizontales - layout grid */
+@media (orientation: landscape) {
+  .hero__image {
+    width: 33%;
+    left: auto;
+  }
+
+  /* Contenedores individuales en landscape */
+  .hero__image {
+    right: 67%;    
+  }
+
+}
+
+/* PORTRAIT LAYOUT - Z-index ordenado para efecto de profundidad */
+@media (orientation: portrait) {
+  /* Imagen por encima del título */
+  .hero__image {
+    z-index: 5;
+  }
+  
+  /* Contenedor del título - posicionado para permitir control interno */
+  .hero__title {
+    top: 25%;
+    transform: translate(-51%, -25%);
+    z-index: 1;
+  }
+  
+  /* Título centrado en 1/3 de la pantalla */
+  .hero-title-container {
+    justify-content: center;
+  }
+  
+  /* Tamaños de texto más grandes para portrait */
+  .hero-title__first,
+  .hero-title__second {
+    font-size: clamp(6rem, 20vw, 30rem) !important;
+    transform: scaleY(1.5);
+    padding-bottom: 2rem;
+  }
+  
+  .hero-title__quote {
+    display: none;
+  }
+  
+}
+
+/* ===== ANIMACIONES GLOBALES ===== */
+.hero__content > * {
+  animation: fadeIn 0.8s ease-out both;
+}
+
+.hero__content > *:nth-child(1) { animation-delay: 0.1s; }
+.hero__content > *:nth-child(2) { animation-delay: 0.3s; }
+.hero__content > *:nth-child(3) { animation-delay: 0.5s; }</style>
+<style data-vite-dev-id="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/styles/components/date-display-new.css">/* ===== DATE DISPLAY COMPONENT ===== */
+
+.date-display {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.date-display__year {
+  font-size: var(--text-sm);
+  letter-spacing: 0.5rem;
+  writing-mode: sideways-lr;
+  text-orientation: mixed;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.8;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 900;
+}
+
+.date-display__right {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.date-display__day,
+.date-display__month {
+  font-size: var(--text-4xl);
+  letter-spacing: 0px;
+  line-height: 0.9;
+  font-weight: 900;
+  font-family: 'JetBrains Mono', monospace;
+}</style>
+<style data-vite-dev-id="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/styles/components/social-header.css">/* ===== SOCIAL HEADER COMPONENT ===== */
+
+.social-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.social-header__handle {
+  font-size: var(--text-sm);
+  font-weight: 400;
+  opacity: 0.9;
+  color: var(--color-secondary);
+}
+
+/* Landscape - Header completo en una línea */
+@media (orientation: landscape) {
+  .social-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    gap: var(--space-md);
+    padding: var(--space-sm) 0;
+  }
+
+  .social-header__handle {
+    color: var(--color-secondary);
+    opacity: 1;
+    font-size: var(--text-sm);
+  }
+}</style>
+<style data-vite-dev-id="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/styles/components/hero-title.css">/* ===== HERO TITLE COMPONENT ===== */
+
+.hero-title-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.hero-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: var(--color-secondary);
+  mix-blend-mode: difference;
+  filter: opacity(0.9);
+  animation: titleReveal 1.5s ease-out 0.5s both;
+}
+
+.hero-title__first,
+.hero-title__second {
+  font-size: clamp(3rem, 15vw, 12rem);
+  font-weight: 900;
+  line-height: 0.8;
+  letter-spacing: -0.05em;
+  text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.6);
+  margin: 0;
+}
+
+.hero-title__quote {
+  font-size: clamp(0.7rem, 2vw, 1rem);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0.5px;
+  margin: clamp(0.3rem, 1.5vw, 0.8rem) 0;
+  max-width: clamp(250px, 50vw, 400px);
+  opacity: 0.9;
+  font-family: var(--font-primary);
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+@keyframes titleReveal {
+  from {
+    opacity: 0;
+    transform: scale(1.1) translateY(20px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 0.9;
+    transform: scale(1) translateY(0);
+    filter: blur(0);
+  }
+}
+
+@media (orientation: landscape) {
+  .hero-title-container {
+    justify-content: center;
+  }
+}</style>
+<style data-vite-dev-id="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/styles/components/author-footer.css">/* ===== AUTHOR FOOTER COMPONENT ===== */
+
+.author-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+
+/* ===== REDES SOCIALES ===== */
+.author-footer__social {
+  display: flex;
+  gap: var(--space-md);
+  align-items: flex-end;
+}
+
+.author-footer__social-link {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text);
+  text-decoration: none;
+  opacity: 0.8;
+  transition: opacity var(--transition-fast);
+  letter-spacing: 1px;
+}
+
+.author-footer__social-link:hover {
+  opacity: 1;
+}
+
+/* ===== INFORMACIÓN DEL AUTOR ===== */
+.author-footer__author {
+  font-style: normal;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  text-align: right;
+}
+
+.author-footer__name {
+  font-family: var(--font-mono);
+  font-size: var(--text-lg);
+  font-weight: 900;
+  letter-spacing: 3px;
+  color: var(--color-text);
+}
+
+.author-footer__location {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text);
+  opacity: 0.8;
+  letter-spacing: 1px;
+}
+
+/* ===== BARRA DE ACENTO ===== */
+.author-footer__accent {
+  position: absolute;
+  bottom: var(--space-3xl);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40%;
+  height: 4px;
+  background: var(--color-accent);
+  z-index: 8;
+}
+
+/* Landscape - Layout horizontal simplificado */
+@media (orientation: landscape) {
+  .author-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+    gap: var(--space-sm);
+    padding: 0;
+    min-height: 40px;
+    max-height: 60px;
+  }
+
+  .author-footer__social-link {
+    color: var(--color-secondary);
+    font-size: var(--text-xs);
+  }
+
+  .author-footer__name {
+    color: var(--color-secondary);
+    font-size: var(--text-sm);
+    letter-spacing: 2px;
+  }
+
+  .author-footer__location {
+    color: var(--color-secondary);
+    font-size: var(--text-xs);
+  }
+}</style>
+<style data-vite-dev-id="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/styles/components/about-me.css">/**
+ * About Me Section Styles
+ * 
+ * Estilos para el componente AboutMe que contiene la presentación
+ * personal y las tarjetas de código con diseño responsive.
+ * 
+ * @author Javier Argüeso
+ * @version 1.0.0
+ */
+
+.about-me-section {
+  /* Layout */
+  padding: var(--spacing-3xl, 4rem) var(--spacing-lg, 1.5rem);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--spacing-3xl, 4rem);
+}
+
+.section-header {
+  /* Typography */
+  text-align: center;
+  max-width: 1200px;
+}
+
+.section-title {
+  /* Typography */
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+  
+  /* Visual */
+  color: rgba(255, 255, 255, 0.8);
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+  
+  /* Spacing */
+  margin-bottom: var(--spacing-lg, 1.5rem);
+}
+
+.section-subtitle {
+  /* Typography */
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.5px;
+  
+  /* Visual */
+  color: var(--color-text-light, #cccccc);
+  opacity: 0.9;
+  
+}
+
+.intro-text {
+  /* Typography */
+  text-align: center;
+  max-width: 800px;
+  
+  /* Visual */
+  color: var(--color-text, #ffffff);
+  
+  /* Spacing */
+  margin-bottom: var(--spacing-lg, 1.5rem);
+}
+
+.intro-text h2 {
+  /* Typography */
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  
+  /* Spacing */
+  margin-bottom: var(--spacing-md, 1rem);
+  
+  /* Visual */
+  color: var(--color-accent, #FDB82F);
+}
+
+.intro-text p {
+  /* Typography */
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  line-height: 1.6;
+  
+  /* Visual */
+  color: var(--color-text-light, #cccccc);
+  
+  /* Spacing */
+  margin-bottom: var(--spacing-sm, 0.5rem);
+}
+
+.code-cards-container {
+  /* Layout */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: var(--spacing-2xl, 3rem);
+  align-items: start;
+  justify-items: center;
+  max-width: 100%;
+  width: 100%;
+}
+
+/* Responsive code cards */
+.code-cards-container > article {
+  width: 100%;
+  min-height: 600px;
+  max-width: 800px;
+}
+
+/* Mobile responsive design */
+@media (max-width: 768px) {
+  .about-me-section {
+    padding: var(--spacing-2xl, 3rem) var(--spacing-md, 1rem);
+    gap: var(--spacing-2xl, 3rem);
+  }
+  
+  .code-cards-container {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl, 2rem);
+    padding: 0 var(--spacing-md, 1rem);
+  }
+  
+  .code-cards-container > article {
+    min-height: 500px;
+    max-width: 100%;
+  }
+}
+
+/* Tablet responsive design */
+@media (min-width: 769px) and (max-width: 1199px) {
+  .code-cards-container {
+    grid-template-columns: repeat(auto-fit, minmax(550px, 1fr));
+    gap: var(--spacing-2xl, 3rem);
+  }
+  
+  .code-cards-container > article {
+    min-height: 650px;
+    max-width: 700px;
+  }
+}
+
+/* Large screens optimization */
+@media (min-width: 1200px) {
+  .about-me-section {
+    padding: var(--spacing-3xl, 4rem) var(--spacing-2xl, 3rem);
+  }
+  
+  .code-cards-container {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 1600px;
+    gap: var(--spacing-3xl, 4rem);
+  }
+  
+  .code-cards-container > article {
+    min-height: 700px;
+    max-width: 750px;
+  }
+}
+
+/* Extra large screens */
+@media (min-width: 1600px) {
+  .code-cards-container > article {
+    min-height: 750px;
+    max-width: 800px;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .intro-text h2,
+  .intro-text p {
+    text-shadow: 0 0 4px currentColor;
+  }
+  
+  .section-title {
+    text-shadow: 0 0 6px currentColor;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .about-me-section {
+    transition: none;
+  }
+}</style>
+<style data-vite-dev-id="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/styles/components/base-code-editor.css">/**
+ * Base Code Editor Styles
+ * 
+ * Estilos base para el componente BaseCodeEditor que proporciona
+ * la estructura visual común para todos los editores de código.
+ * 
+ * @author Javier Argüeso
+ * @version 1.0.0
+ */
+
+.code-editor {
+  /* Layout & Dimensions - Responsive */
+  width: 100%;
+  min-width: 280px;
+  max-width: none;
+  flex: 1;
+  
+  /* Visual Design */
+  background-color: var(--editorBackground, #222526);
+  box-shadow: var(--shadowLarge, 0px 4px 30px rgba(0, 0, 0, 0.5));
+  border-radius: 8px;
+  
+  /* Typography */
+  font-family: var(--fontMono, 'Courier New', monospace);
+  
+  /* Positioning */
+  padding: 2px;
+  
+  /* Accessibility */
+  overflow: hidden;
+  
+  /* Performance */
+  will-change: transform;
+  contain: layout style paint;
+}
+
+.editor-header {
+  /* Layout */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+  /* Spacing */
+  margin: 15px 20px;
+  
+  /* User interaction */
+  user-select: none;
+}
+
+.editor-title {
+  /* Typography */
+  color: var(--textPrimary, #f0f6fc);
+  font-size: 14px;
+  font-weight: 600;
+  font-family: var(--fontSans, system-ui, sans-serif);
+  
+  /* Layout */
+  margin: 0;
+  
+  /* Text handling */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  
+  /* Accessibility */
+  letter-spacing: 0.5px;
+}
+
+.close-button {
+  /* Reset button styles */
+  border: none;
+  background: none;
+  
+  /* Layout */
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  
+  /* Interaction */
+  cursor: pointer;
+  transition: background-color var(--animationDuration, 0.2s) ease;
+  
+  /* Accessibility */
+  outline-offset: 2px;
+  min-width: 28px;
+  min-height: 28px;
+}
+
+.close-button:hover {
+  background-color: var(--hoverBackground, #6e7281);
+}
+
+.close-button:focus-visible {
+  outline: 2px solid var(--textPrimary, #f0f6fc);
+  outline-offset: 2px;
+}
+
+.close-icon {
+  width: var(--iconSize, 20px);
+  height: var(--iconSize, 20px);
+  color: #4C4F5A;
+  transition: color var(--animationDuration, 0.2s) ease;
+}
+
+.close-button:hover .close-icon {
+  color: var(--textPrimary, #f0f6fc);
+}
+
+.editor-content {
+  /* Layout */
+  padding: 20px;
+  
+  /* Visual */
+  background: transparent;
+  
+  /* Scrolling */
+  overflow: visible;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .editor-header {
+    margin: 12px 15px;
+  }
+  
+  .editor-title {
+    font-size: 13px;
+  }
+  
+  .editor-content {
+    padding: 15px;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .code-editor {
+    border: 2px solid var(--textPrimary, #f0f6fc);
+  }
+  
+  .editor-title {
+    text-shadow: 0 0 2px currentColor;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .close-button,
+  .close-icon {
+    transition: none;
+  }
+}</style>
+<style data-vite-dev-id="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/styles/components/python-code-card.css">/**
+ * Python Code Card Styles
+ * 
+ * Estilos específicos para el componente PythonCodeCard que muestra
+ * código Python con syntax highlighting y diseño responsive.
+ * 
+ * @author Javier Argüeso
+ * @version 1.0.0
+ */
+
+.python-content {
+  font-family: 'Courier New', monospace;
+  font-size: clamp(12px, 2.5vw, 16px);
+  line-height: 1.6;
+  color: white;
+  overflow-x: hidden;
+  word-wrap: break-word;
+}
+
+.python-content p {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Python syntax highlighting colors */
+.color-keyword {
+  color: #ff7b72; /* Python keywords - red */
+  font-weight: 600;
+}
+
+.color-function {
+  color: #d2a8ff; /* Function names - purple */
+  font-weight: 500;
+}
+
+.color-string {
+  color: #a5d6ff; /* String literals - light blue */
+}
+
+.color-comment {
+  color: #8b949e; /* Comments - gray */
+  font-style: italic;
+}
+
+.color-variable {
+  color: #79c0ff; /* Variables - blue */
+}
+
+.color-punctuation {
+  color: #f0f6fc; /* Punctuation - white */
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .color-keyword,
+  .color-function,
+  .color-string {
+    text-shadow: 0 0 2px currentColor;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .python-content {
+    transition: none;
+  }
+}</style>
+<style data-vite-dev-id="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/styles/components/yaml-code-card.css">/**
+ * YAML Code Card Styles
+ * 
+ * Estilos específicos para el componente YamlCodeCard que muestra
+ * código YAML con syntax highlighting y diseño responsive.
+ * 
+ * @author Javier Argüeso
+ * @version 1.0.0
+ */
+
+.yaml-content {
+  font-family: 'Courier New', monospace;
+  font-size: clamp(12px, 2.5vw, 16px);
+  line-height: 1.6;
+  color: white;
+  overflow-x: visible;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.yaml-content p {
+  margin: 0;
+  padding: 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: none;
+}
+
+/* YAML syntax highlighting colors */
+.color-key {
+  color: #79c0ff; /* YAML keys - light blue */
+  font-weight: 600;
+}
+
+.color-string {
+  color: #a5d6ff; /* String values - lighter blue */
+}
+
+.color-value {
+  color: #f85149; /* Scalar values - red */
+}
+
+.color-punctuation {
+  color: #f0f6fc; /* Punctuation - white */
+}
+
+.color-comment {
+  color: #8b949e; /* Comments - gray */
+  font-style: italic;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .color-key,
+  .color-string,
+  .color-value {
+    text-shadow: 0 0 2px currentColor;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .yaml-content {
+    transition: none;
+  }
+}</style><script type="module" src="/@vite/client"></script>
+<script type="module" src="/@fs/Users/javier/Workspaces/personal/srcheesedev/portfolio/node_modules/astro/dist/runtime/client/dev-toolbar/entrypoint.js?v=8149b19a"></script>
+<script>window.__astro_dev_toolbar__ = {"root":"/Users/javier/Workspaces/personal/srcheesedev/portfolio/","version":"5.14.7","debugInfo":"Astro                    v5.14.7\nNode                     v24.10.0\nSystem                   macOS (arm64)\nPackage Manager          npm\nOutput                   static\nAdapter                  none\nIntegrations             none"}</script>
+<script type="module" src="/src/layouts/Layout.astro?astro&type=style&index=0&lang.css"></script>
+<script type="module" src="/src/styles/global.css"></script>
+<script type="module" src="/src/styles/hero-clean.css"></script>
+<script type="module" src="/src/styles/components/date-display-new.css"></script>
+<script type="module" src="/src/styles/components/social-header.css"></script>
+<script type="module" src="/src/styles/components/hero-title.css"></script>
+<script type="module" src="/src/styles/components/author-footer.css"></script>
+<script type="module" src="/src/styles/components/about-me.css"></script>
+<script type="module" src="/src/styles/components/base-code-editor.css"></script>
+<script type="module" src="/src/styles/components/python-code-card.css"></script>
+<script type="module" src="/src/styles/components/yaml-code-card.css"></script></head> <body data-astro-cid-sckkx6r4 data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/layouts/Layout.astro" data-astro-source-loc="93:9"> <!-- Skip to main content for accessibility --> <a href="#main-content" class="skip-link" data-astro-cid-sckkx6r4 data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/layouts/Layout.astro" data-astro-source-loc="95:47">Skip to main content</a> <!-- Main content wrapper --> <div id="main-content" role="main" data-astro-cid-sckkx6r4 data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/layouts/Layout.astro" data-astro-source-loc="98:40">   <section class="hero" role="banner" aria-label="Developer portfolio hero section" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/Presentation.astro" data-astro-source-loc="31:2"> <!-- Background Image --> <figure class="hero__image" aria-hidden="true" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/Presentation.astro" data-astro-source-loc="33:50"> <img src="/porfolio/IMG_20250526_105648_239.avif" alt="Javier - DEVOPS ENGINEER" width="1200" height="800" loading="eager" fetchpriority="high" class="hero__img" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/Presentation.astro" data-astro-source-loc="34:6"> </figure> <!-- Contrast Overlay --> <div class="hero__overlay" aria-hidden="true" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/Presentation.astro" data-astro-source-loc="46:4"></div> <!-- Header with social links and handle --> <div class="hero__header" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/Presentation.astro" data-astro-source-loc="49:29"> <header class="social-header " data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/hero/SocialHeader.astro" data-astro-source-loc="14:46"> <span class="social-header__handle" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/hero/SocialHeader.astro" data-astro-source-loc="15:39">@srcheese.dev</span> <div class="date-display " aria-label="Current date: October 30, 2025" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/hero/DateDisplay.astro" data-astro-source-loc="39:2"> <span class="date-display__year" aria-hidden="true" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/hero/DateDisplay.astro" data-astro-source-loc="40:55">2025</span> <div class="date-display__right" aria-hidden="true" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/hero/DateDisplay.astro" data-astro-source-loc="41:55"> <span class="date-display__day" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/hero/DateDisplay.astro" data-astro-source-loc="42:37">30</span> <span class="date-display__month" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/hero/DateDisplay.astro" data-astro-source-loc="43:39">10</span> </div> </div> <script type="module" src="/src/components/hero/DateDisplay.astro?astro&type=script&index=0&lang.ts"></script> </header> </div> <!-- Main title with quote --> <div class="hero__title" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/Presentation.astro" data-astro-source-loc="56:28"> <div class="hero-title-container " aria-hidden="true" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/hero/HeroTitle.astro" data-astro-source-loc="14:69"> <div class="hero-title" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/hero/HeroTitle.astro" data-astro-source-loc="15:27"> <span class="hero-title__first" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/hero/HeroTitle.astro" data-astro-source-loc="16:37">DEVOPS</span> <span class="hero-title__quote" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/hero/HeroTitle.astro" data-astro-source-loc="17:37">Destroy Every Version On Production Servers</span> <span class="hero-title__second" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/hero/HeroTitle.astro" data-astro-source-loc="18:38">ENGINEER</span> </div> </div> </div> <!-- Footer with author info and social links --> <div class="hero__footer" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/Presentation.astro" data-astro-source-loc="64:29"> <footer class="author-footer " data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/hero/AuthorFooter.astro" data-astro-source-loc="20:46"> <!-- Enlaces de redes sociales a la izquierda --> <div class="author-footer__social" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/hero/AuthorFooter.astro" data-astro-source-loc="22:38"> <a href="https://instagram.com/srcheese.dev" target="_blank" rel="noopener noreferrer" class="author-footer__social-link" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/hero/AuthorFooter.astro" data-astro-source-loc="23:114">
+IG
+</a> <a href="https://linkedin.com/in/javier-argueso-soto" target="_blank" rel="noopener noreferrer" class="author-footer__social-link" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/hero/AuthorFooter.astro" data-astro-source-loc="26:113">
+LI
+</a> <a href="https://github.com/srcheesedev" target="_blank" rel="noopener noreferrer" class="author-footer__social-link" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/hero/AuthorFooter.astro" data-astro-source-loc="29:111">
+GH
+</a> </div> <!-- Información del autor a la derecha --> <address class="author-footer__author" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/hero/AuthorFooter.astro" data-astro-source-loc="35:42"> <span class="author-footer__name" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/hero/AuthorFooter.astro" data-astro-source-loc="36:39">JAVIER ARGÜESO</span> <span class="author-footer__location" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/hero/AuthorFooter.astro" data-astro-source-loc="37:43">LOST, EARTH</span> </address> <div class="author-footer__accent" aria-hidden="true" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/hero/AuthorFooter.astro" data-astro-source-loc="40:19"></div> </footer> </div> </section>  <section class="about-me-section" role="main" aria-labelledby="about-me-title" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/AboutMe.astro" data-astro-source-loc="24:2"> <div class="section-header" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/AboutMe.astro" data-astro-source-loc="25:31"> <h2 id="about-me-title" class="section-title" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/AboutMe.astro" data-astro-source-loc="26:51">
+About Me
+</h2> <p class="section-subtitle" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/AboutMe.astro" data-astro-source-loc="29:33">
+Professional journey through code
+</p> </div> <div class="code-cards-container" role="region" aria-label="Professional code examples" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/AboutMe.astro" data-astro-source-loc="38:4"> <article class="code-editor python-code-card" role="img" aria-label="Code editor showing developer_profile.py" data-language="python" aria-label="Python code showing developer profile and skills" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/base/BaseCodeEditor.astro" data-astro-source-loc="71:2"> <!-- Editor Header --> <header class="editor-header" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/base/BaseCodeEditor.astro" data-astro-source-loc="73:33"> <h3 class="editor-title" title="developer_profile.py" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/base/BaseCodeEditor.astro" data-astro-source-loc="74:54"> developer_profile.py </h3> <button class="close-button" type="button" aria-label="Close editor" tabindex="-1" style="visibility: hidden;" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/base/BaseCodeEditor.astro" data-astro-source-loc="85:6"> <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="close-icon" aria-hidden="true" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/base/BaseCodeEditor.astro" data-astro-source-loc="92:10"> <path stroke-linecap="round" stroke-width="2" stroke="currentColor" d="M6 6L18 18" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/base/BaseCodeEditor.astro" data-astro-source-loc="93:12"></path> <path stroke-linecap="round" stroke-width="2" stroke="currentColor" d="M18 6L6 18" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/base/BaseCodeEditor.astro" data-astro-source-loc="99:12"></path> </svg> </button> </header> <!-- Editor Content Area --> <main class="editor-content" role="main" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/base/BaseCodeEditor.astro" data-astro-source-loc="111:44">  <div class="python-content" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="25:31"> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="26:9"><span class="color-comment" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="26:36">#!/usr/bin/env python3</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="27:9"><span class="color-comment" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="27:36">"""</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="28:9"><span class="color-comment" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="28:36">Developer: Javier Argüeso</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="29:9"><span class="color-comment" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="29:36">DevOps Engineer</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="30:9"><span class="color-comment" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="30:36">"""</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="31:6"></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="32:9"><span class="color-keyword" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="32:36">def</span> <span class="color-function" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="32:76">get_info</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="32:123">():</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="33:8"> <span class="color-keyword" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="33:40">return</span> <span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="33:86">&#123;</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="34:8"> <span class="color-string" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="34:43">"name"</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="34:88">:</span> <span class="color-string" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="34:124">"Javier Argüeso"</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="34:181">,</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="35:8"> <span class="color-string" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="35:43">"role"</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="35:88">:</span> <span class="color-string" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="35:124">"DevOps Engineer"</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="35:181">,</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="36:8"> <span class="color-string" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="36:43">"location"</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="36:92">:</span> <span class="color-string" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="36:128">"Badajoz, España"</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="36:189">,</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="37:8"> <span class="color-string" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="37:43">"education"</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="37:93">:</span> <span class="color-string" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="37:129">"Computer Engineering"</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="38:8"> <span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="38:44">&#125;</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="39:6"></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="40:9"><span class="color-keyword" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="40:36">def</span> <span class="color-function" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="40:76">get_skills</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="40:125">():</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="41:8"> <span class="color-keyword" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="41:40">return</span> <span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="41:86">&#123;</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="42:8"> <span class="color-string" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="42:43">"cloud"</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="42:89">:</span> <span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="42:130">[</span><span class="color-string" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="42:165">"GCP"</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="42:209">,</span> <span class="color-string" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="42:245">"AWS"</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="42:289">,</span> <span class="color-string" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="42:325">"Azure"</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="42:371">],</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="43:8"> <span class="color-string" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="43:43">"automation"</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="43:94">:</span> <span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="43:135">[</span><span class="color-string" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="43:170">"K8s"</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="43:214">,</span> <span class="color-string" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="43:250">"Docker"</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="43:297">],</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="44:8"> <span class="color-string" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="44:43">"programming"</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="44:95">:</span> <span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="44:136">[</span><span class="color-string" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="44:171">"Python"</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="44:218">,</span> <span class="color-string" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="44:254">"Bash"</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="44:299">],</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="45:8"> <span class="color-string" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="45:43">"ci_cd"</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="45:89">:</span> <span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="45:130">[</span><span class="color-string" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="45:165">"GitLab"</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="45:212">,</span> <span class="color-string" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="45:248">"Azure DevOps"</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="45:301">]</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="46:8"> <span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="46:44">&#125;</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="47:6"></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="48:9"><span class="color-keyword" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="48:36">def</span> <span class="color-function" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="48:76">get_interests</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="48:128">():</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="49:8"> <span class="color-keyword" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="49:40">return</span> <span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="49:86">&#123;</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="50:8"> <span class="color-string" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="50:43">"tech"</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="50:88">:</span> <span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="50:129">[</span><span class="color-string" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="50:164">"Cloud"</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="50:210">,</span> <span class="color-string" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="50:246">"Automation"</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="50:297">],</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="51:8"> <span class="color-string" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="51:43">"hobbies"</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="51:91">:</span> <span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="51:132">[</span><span class="color-string" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="51:167">"Metal"</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="51:213">,</span> <span class="color-string" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="51:249">"Beer"</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="51:294">,</span> <span class="color-string" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="51:330">"Cheese"</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="51:377">]</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="52:8"> <span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="52:44">&#125;</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="53:6"></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="54:9"><span class="color-keyword" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="54:36">def</span> <span class="color-function" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="54:76">main</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="54:119">():</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="55:8"> <span class="color-variable" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="55:41">profile</span> <span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="55:88">=</span> <span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="55:129">&#123;</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="56:8"> <span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="56:48">**</span><span class="color-function" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="56:86">get_info</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="56:133">(),</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="57:8"> <span class="color-string" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="57:43">"skills"</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="57:90">:</span> <span class="color-function" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="57:128">get_skills</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="57:177">(),</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="58:8"> <span class="color-string" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="58:43">"interests"</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="58:93">:</span> <span class="color-function" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="58:131">get_interests</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="58:183">()</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="59:8"> <span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="59:44">&#125;</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="60:8"> <span class="color-keyword" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="60:40">return</span> <span class="color-variable" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="60:83">profile</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="61:6"></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="62:9"><span class="color-keyword" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="62:36">if</span> <span class="color-variable" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="62:75">__name__</span> <span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="62:123">==</span> <span class="color-string" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="62:160">"__main__"</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="62:209">:</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="63:8"> <span class="color-variable" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="63:41">dev</span> <span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="63:84">=</span> <span class="color-function" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="63:122">main</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="63:165">()</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="64:8"> <span class="color-function" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="64:41">print</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="64:85">(</span><span class="color-keyword" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="64:121">f</span><span class="color-string" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="64:156">"👋 &#123;dev['name']&#125;"</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="64:223">)</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="65:8"> <span class="color-function" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="65:41">print</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="65:85">(</span><span class="color-keyword" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="65:121">f</span><span class="color-string" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="65:156">"📍 &#123;dev['location']&#125;"</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="65:227">)</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="66:8"> <span class="color-function" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="66:41">print</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="66:85">(</span><span class="color-keyword" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="66:121">f</span><span class="color-string" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="66:156">"🚀 &#123;dev['role']&#125;"</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/PythonCodeCard.astro" data-astro-source-loc="66:223">)</span></p> </div>  </main> </article> <article class="code-editor yaml-code-card" role="img" aria-label="Code editor showing experience-pipeline.yml" data-language="yaml" aria-label="GitLab CI pipeline showing professional experience and skills" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/base/BaseCodeEditor.astro" data-astro-source-loc="71:2"> <!-- Editor Header --> <header class="editor-header" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/base/BaseCodeEditor.astro" data-astro-source-loc="73:33"> <h3 class="editor-title" title="experience-pipeline.yml" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/base/BaseCodeEditor.astro" data-astro-source-loc="74:54"> experience-pipeline.yml </h3> <button class="close-button" type="button" aria-label="Close editor" tabindex="-1" style="visibility: hidden;" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/base/BaseCodeEditor.astro" data-astro-source-loc="85:6"> <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="close-icon" aria-hidden="true" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/base/BaseCodeEditor.astro" data-astro-source-loc="92:10"> <path stroke-linecap="round" stroke-width="2" stroke="currentColor" d="M6 6L18 18" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/base/BaseCodeEditor.astro" data-astro-source-loc="93:12"></path> <path stroke-linecap="round" stroke-width="2" stroke="currentColor" d="M18 6L6 18" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/base/BaseCodeEditor.astro" data-astro-source-loc="99:12"></path> </svg> </button> </header> <!-- Editor Content Area --> <main class="editor-content" role="main" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/base/BaseCodeEditor.astro" data-astro-source-loc="111:44">  <div class="yaml-content" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="25:29"> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="26:9"><span class="color-comment" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="26:36"># GitLab CI Pipeline - DevOps Career Journey</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="27:9"><span class="color-key" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="27:32">variables</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="27:80">:</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="28:8"> <span class="color-key" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="28:34">DEVELOPER_NAME</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="28:87">:</span> <span class="color-string" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="28:123">"Javier Argüeso"</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="29:8"> <span class="color-key" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="29:34">ROLE</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="29:77">:</span> <span class="color-string" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="29:113">"DevOps Engineer"</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="30:8"> <span class="color-key" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="30:34">LOCATION</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="30:81">:</span> <span class="color-string" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="30:117">"Badajoz, España"</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="31:8"> <span class="color-key" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="31:34">EDUCATION</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="31:82">:</span> <span class="color-string" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="31:118">"Ingeniería Informática - Universidad de Extremadura"</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="32:8"> <span class="color-key" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="32:34">CERTIFICATIONS</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="32:87">:</span> <span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="32:128">[</span><span class="color-string" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="32:163">"Google Cloud Associate Engineer"</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="32:235">,</span> <span class="color-string" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="32:271">"Google Cloud Professional DevOps Engineer"</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="32:353">,</span> <span class="color-string" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="32:389">"AZ-400"</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="32:436">]</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="33:8"> <span class="color-key" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="33:34">TECHS</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="33:78">:</span> <span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="33:119">[</span><span class="color-string" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="33:154">"GCP"</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="33:198">,</span> <span class="color-string" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="33:234">"AWS"</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="33:278">,</span> <span class="color-string" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="33:314">"Azure"</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="33:360">,</span> <span class="color-string" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="33:396">"Kubernetes"</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="33:447">,</span> <span class="color-string" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="33:483">"Jenkins"</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="33:531">,</span> <span class="color-string" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="33:567">"GitLab CI/CD"</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="33:620">,</span> <span class="color-string" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="33:656">"Azure DevOps"</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="33:709">,</span> <span class="color-string" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="33:745">"Terraform"</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="33:795">,</span> <span class="color-string" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="33:831">"Python"</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="33:878">]</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="34:6"></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="35:9"><span class="color-key" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="35:32">stages</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="35:77">:</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="36:8"> <span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="36:42">-</span> <span class="color-value" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="36:77">education</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="37:8"> <span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="37:42">-</span> <span class="color-value" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="37:77">experience</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="38:6"></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="39:9"><span class="color-comment" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="39:36"># Education &amp; Certification</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="40:9"><span class="color-key" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="40:32">foundation</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="40:81">:</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="41:8"> <span class="color-key" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="41:34">stage</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="41:78">:</span> <span class="color-value" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="41:113">education</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="42:8"> <span class="color-key" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="42:34">image</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="42:78">:</span> <span class="color-value" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="42:113">ubuntu</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="43:8"></p><p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="43:15"> <span class="color-key" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="43:41">script</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="43:86">:</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="44:8"> <span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="44:44">-</span><span class="color-string" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="44:79">echo "🎓 $&#123;EDUCATION&#125;"</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="45:8"> <span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="45:44">-</span> <span class="color-string" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="45:80">echo "☁️ $&#123;CERTIFICATIONS[0]&#125; certified"</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="46:8"> <span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="46:44">-</span> <span class="color-string" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="46:80">echo "☁️ $&#123;CERTIFICATIONS[1]&#125; in progress"</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="47:8"> <span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="47:44">-</span> <span class="color-string" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="47:80">echo "☁️ $&#123;CERTIFICATIONS[2]&#125; in progress"</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="48:6"></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="49:9"><span class="color-comment" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="49:36"># Professional Experience</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="50:9"><span class="color-key" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="50:32">plexus-tech</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="50:82">:</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="51:8"> <span class="color-key" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="51:34">stage</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="51:78">:</span> <span class="color-value" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="51:113">experience</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="52:8"> <span class="color-key" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="52:34">image</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="52:78">:</span> <span class="color-value" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="52:113">ubuntu:21.07</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="53:8"> <span class="color-key" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="53:34">variables</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="53:82">:</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="54:8"> <span class="color-key" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="54:36">COMPANY</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="54:82">:</span> <span class="color-string" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="54:118">"Plexus Tech (2021-2023)"</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="55:8"> <span class="color-key" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="55:34">script</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="55:79">:</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="56:8"> <span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="56:44">-</span> <span class="color-string" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="56:80">echo "🚀 DevOps Engineer at $&#123;COMPANY&#125;"</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="57:8"> <span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="57:44">-</span> <span class="color-string" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="57:80">echo "🔧 CI/CD pipelines &amp; container orchestration"</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="58:8"> <span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="58:44">-</span> <span class="color-string" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="58:80">echo "☁️ Clouds $&#123;TECHS[1]&#125;, $&#123;TECHS[2]&#125;"</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="59:6"></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="60:9"><span class="color-key" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="60:32">minsait-current</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="60:86">:</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="61:8"> <span class="color-key" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="61:34">stage</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="61:78">:</span> <span class="color-value" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="61:113">experience</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="62:8"> <span class="color-key" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="62:34">image</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="62:78">:</span> <span class="color-value" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="62:113">ubuntu:23.04</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="63:8"> <span class="color-key" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="63:34">variables</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="63:82">:</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="64:8"> <span class="color-key" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="64:36">COMPANY</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="64:82">:</span> <span class="color-string" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="64:118">"Minsait (2023-Present)"</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="65:8"> <span class="color-key" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="65:34">script</span><span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="65:79">:</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="66:8"> <span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="66:44">-</span> <span class="color-string" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="66:80">echo "🚀 DevOps Engineer at $&#123;COMPANY&#125;"</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="67:8"> <span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="67:44">-</span> <span class="color-string" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="67:80">echo "🔧 CI/CD pipelines &amp; container orchestration"</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="68:8"> <span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="68:44">-</span> <span class="color-string" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="68:80">echo "☁️ Clouds $&#123;TECHS[0]&#125;"</span></p> <p data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="69:8"> <span class="color-punctuation" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="69:44">-</span> <span class="color-string" data-astro-source-file="/Users/javier/Workspaces/personal/srcheesedev/portfolio/src/components/YamlCodeCard.astro" data-astro-source-loc="69:80">echo "🔒 Security &amp; automation focus"</span></p> </div>  </main> </article> </div> </section>  </div> </body></html>
