@@ -47,7 +47,7 @@ export const SITE_SEO: SEOConfig = {
     "Software Engineer"
   ] as const,
   author: "Javier Argüeso",
-  ogImage: "/portfolio/IMG_20250526_105648_239.jpg",
+  ogImage: "/porfolio/IMG_20250526_105648_239.jpg",
   twitterCard: "summary_large_image",
   structuredData: {
     "@context": "https://schema.org",
