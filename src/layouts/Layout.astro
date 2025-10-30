@@ -1,22 +1,155 @@
+---
+/**
+ * Base Layout Component
+ * 
+ * Main layout wrapper providing essential HTML structure, SEO optimization,
+ * and performance enhancements for all pages.
+ * 
+ * Features:
+ * - Comprehensive SEO meta tags
+ * - Structured data for search engines
+ * - Performance optimizations (preconnect, dns-prefetch)
+ * - Accessibility standards compliance
+ * - Font loading optimization
+ * 
+ * @component Layout
+ * @param {SEOConfig} seo - SEO configuration object
+ * @param {string} title - Page title (optional override)
+ * 
+ * @example
+ * ```astro
+ * ---
+ * import Layout from '../layouts/Layout.astro';
+ * import { PAGE_SEO } from '../config/seo.ts';
+ * ---
+ * <Layout seo={PAGE_SEO.home}>
+ *   <main>Content here</main>
+ * </Layout>
+ * ```
+ */
+
+import type { SEOConfig } from '../config/seo.ts';
+import { SITE_SEO } from '../config/seo.ts';
+
+interface Props {
+  seo?: SEOConfig;
+  title?: string;
+}
+
+const { seo = SITE_SEO, title } = Astro.props;
+const pageTitle = title || seo.title;
+const canonicalURL = Astro.site 
+  ? new URL(Astro.url.pathname, Astro.site)
+  : `http://localhost:4321${Astro.url.pathname}`;
+---
+
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+<html lang="en" dir="ltr">
+  <head>
+    <!-- Essential Meta Tags -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- SEO Meta Tags -->
+    <title>{pageTitle}</title>
+    <meta name="description" content={seo.description} />
+    <meta name="keywords" content={seo.keywords.join(', ')} />
+    <meta name="author" content={seo.author} />
+    <link rel="canonical" href={canonicalURL} />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={seo.description} />
+    <meta property="og:site_name" content="Javier Argüeso Portfolio" />
+    {seo.ogImage && <meta property="og:image" content={seo.ogImage} />}
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content={seo.twitterCard || 'summary_large_image'} />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={pageTitle} />
+    <meta property="twitter:description" content={seo.description} />
+    {seo.ogImage && <meta property="twitter:image" content={seo.ogImage} />}
+    
+    <!-- Favicon and Icons -->
+    <link rel="icon" type="image/png" href="/portfolio/favicon.png" />
+    <link rel="apple-touch-icon" href="/portfolio/favicon.png" />
+    
+    <!-- Performance and Font Optimization -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    
+    <!-- Structured Data -->
+    {seo.structuredData && (
+      <script type="application/ld+json" is:inline set:html={JSON.stringify(seo.structuredData)} />
+    )}
+    
+    <!-- Security Headers -->
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+  </head>
+  
+  <body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Main content wrapper -->
+    <div id="main-content" role="main">
+      <slot />
+    </div>
+  </body>
 </html>
 
 <style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+  /* CSS Reset and Base Styles */
+  html {
+    box-sizing: border-box;
+    height: 100%;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Accessibility: Skip link for screen readers */
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: #000;
+    color: #fff;
+    padding: 8px;
+    text-decoration: none;
+    border-radius: 4px;
+    z-index: 1000;
+  }
+
+  .skip-link:focus {
+    top: 6px;
+  }
+
+  /* Performance: Reduce motion for users who prefer it */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
 </style>
