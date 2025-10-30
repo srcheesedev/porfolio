@@ -55,8 +55,8 @@ export const SITE_SEO: SEOConfig = {
     "name": "Javier Argüeso",
     "jobTitle": "DevOps Engineer",
     "description": "DevOps Engineer specializing in cloud infrastructure and automation",
-    "url": "https://srcheesedev.github.io/portfolio",
-    "image": "/portfolio/IMG_20250526_105648_239.jpg",
+    "url": "https://srcheesedev.github.io/porfolio",
+    "image": "/porfolio/IMG_20250526_105648_239.jpg",
     "sameAs": [
       "https://github.com/srcheesedev",
       "https://linkedin.com/in/javier-argueso-soto",
