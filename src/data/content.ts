@@ -12,7 +12,7 @@ export const content: PortfolioContent = {
   title: "DEVOPS ENGINEER",
   subtitle: "JAVIER ARGÜESO", 
   text: "Destroy Every Version On Production Servers",
-  image: "/portfolio/IMG_20250526_105648_239.jpg",
+  image: "/porfolio/IMG_20250526_105648_239.jpg",
   author: "srcheese.dev",
   realName: "Javier",
   location: "LOST, EARTH",
